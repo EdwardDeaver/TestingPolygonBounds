@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<div>
+	<h1>GEOCODED 3000 Blocks(Current limited by # of Mapquest accounts) <small>Runs best in Chrome/Firefox(Haven't tested IE/Edge, poor in Safari)</small>
+	</h1>
+
+
+</div>
+<iframe src="POLYGON__GEOCDED1320_TRY36_filtered.html" style="overflow:hidden;position:relative;width:49%; height:50vh;float:left;"></iframe>
+<div style="overflow:hidden;position:relative;width:50%; height:100%;float: right;">
+	<ul>
+		 Issues:
+		<li> 690 with a x/y filter doesn't show (probably can just whitelist it)</li>
+		<li> Need more mapquest accounts to geocode rest of KML(2000 blocks left)</li>
+		<li> Potentially high rate of false positives due to overlapping polygons</li>
+		<li> Will not pan on drag in Safari. Loads and zooms but iframes don't work well in Safari </li>
+	</ul>
+		<ul>
+		 Current Stack:
+		<li> Python to GeoCode + Mapquest </li>
+		<li> Python+Folium to make map</li>
+		<li> MongoDB to hold data</li>
+		<li style="color:red;"> <strong>Iframe loading <b>7.3mb</b> HTML file map<br>
+		Warning scrolling through this Polygon map will be slow right now. With just the lines it's about 4mb</strong></li>
+				<li> CURRENT Polygon: R_T_ADD, L_T_ADD, L_F_ADD, R_F_ADD</li>
+
+		<ul>
+			<li> Going to look into JS client side loading connecting to MongoDB. </li>
+		</ul>
+	</ul>
+	<ul>
+		<li> <h3> blue boxes == polygon search box(geocoded points)</h3></li>
+		<li> <h3> yellow/orange lines == street line from kml file </h3></li>
+	</ul>
+
+	</div>
+	<footer style="position: absolute; bottom: 0; width: 100%;">
+		<ul>
+			Made by: Edward C. Deaver, IV <br>
+			Client Side strats:
+			<li> PostreSQL <a href="https://gonzalo123.com/2012/05/07/asynchronous-queries-to-relational-databases-from-browser-with-node-js-and-socket-io/"> Async using SocketIO JS, then + Leaflet.js</a></li>
+
+		</ul>
+	</footer>
+</body>
+</html>
